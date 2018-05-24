@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Test.It.With.Amqp.Protocol;
-using Test.It.With.Amqp.Protocol.Extensions;
+using Test.It.With.Amqp091.Protocol.Extensions;
 using Test.It.With.Amqp091.Protocol.Generator;
 
 namespace Test.It.With.Amqp091.Protocol

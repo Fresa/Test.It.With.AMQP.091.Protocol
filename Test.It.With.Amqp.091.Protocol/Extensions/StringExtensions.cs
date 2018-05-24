@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Test.It.With.Amqp091.Protocol.Extensions
 {
-    public static class StringExtensions
+    internal static class StringExtensions
     {
         public static string[] SplitOnUpperCase(this string str)
         {
