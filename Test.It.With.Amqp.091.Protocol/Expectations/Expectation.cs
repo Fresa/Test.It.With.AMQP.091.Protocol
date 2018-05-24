@@ -1,4 +1,5 @@
 using Test.It.With.Amqp.Protocol.Extensions;
+using Test.It.With.Amqp091.Protocol.Extensions;
 
 namespace Test.It.With.Amqp091.Protocol.Expectations
 {

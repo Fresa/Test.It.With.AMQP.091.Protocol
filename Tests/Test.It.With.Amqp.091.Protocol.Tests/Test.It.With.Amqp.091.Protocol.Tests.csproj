@@ -7,7 +7,7 @@
         <RootNamespace>Test.It.With.Amqp091.Protocol.Tests</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\Test.It.With.Amqp.091\Test.It.With.Amqp.091.Protocol.csproj" />
+        <ProjectReference Include="..\..\Test.It.With.Amqp.091.Protocol\Test.It.With.Amqp.091.Protocol.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="FakeItEasy" Version="4.6.0" />

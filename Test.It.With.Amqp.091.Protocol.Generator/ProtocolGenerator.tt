@@ -1,15 +1,18 @@
 ﻿<#@ template language="C#" debug="true" hostspecific="true" #>
+<#@ assembly name="netstandard" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Xml" #>
 <#@ assembly name="System.Text.RegularExpressions" #>
-<#@ assembly name="$(SolutionDir)\Test.It.With.Amqp.Protocol\bin\Debug\Test.It.With.Amqp.Protocol.dll" #>
+<#@ assembly name="$(SolutionDir)\Test.It.With.Amqp.091.Protocol\bin\Debug\net47\Test.It.With.Amqp.Protocol.dll" #>
+<#@ assembly name="$(SolutionDir)\Test.It.With.Amqp.091.Protocol.Generator.Transformation\bin\Debug\netstandard2.0\Test.It.With.Amqp.091.Protocol.Generator.Transformation.dll" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Xml" #>
 <#@ import namespace="Test.It.With.Amqp.Protocol" #>
 <#@ import namespace="Test.It.With.Amqp.Protocol.Definitions" #>
-<#@ import namespace="Test.It.With.Amqp.Protocol.Extensions" #>
+<#@ import namespace="Test.It.With.Amqp091.Protocol.Generator.Transformation" #>
+<#@ import namespace="Test.It.With.Amqp091.Protocol.Generator.Transformation.Extensions" #>
 <#
     var path = Path.Combine(Host.ResolvePath(@"amqp0-9-1\amqp0-9-1.xml"));
     var definition = new XmlDocument();
@@ -76,6 +79,7 @@ using System.Net;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using Test.It.With.Amqp.Protocol;
 using Validation;
 
 namespace Test.It.With.Amqp<#= protocol.Major #><#=protocol.Minor#><#= protocol.Revision #>.Protocol.Generator<# Block(() =>

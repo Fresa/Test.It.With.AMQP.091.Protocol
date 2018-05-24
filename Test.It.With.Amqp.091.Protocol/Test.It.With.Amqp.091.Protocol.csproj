@@ -11,7 +11,7 @@
       <LangVersion>7.1</LangVersion>
     </PropertyGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Test.It.With.Amqp.091.Generator\Test.It.With.Amqp.091.Protocol.Generator.csproj" />
+      <ProjectReference Include="..\Test.It.With.Amqp.091.Protocol.Generator\Test.It.With.Amqp.091.Protocol.Generator.csproj" />
     </ItemGroup>
   <ItemGroup>
     <Reference Include="Test.It.With.Amqp.Protocol">

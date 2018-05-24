@@ -1,9 +1,9 @@
 ﻿// WARNING! THIS FILE IS AUTO-GENERATED! DO NOT EDIT.
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Test.It.With.Amqp.Protocol;
@@ -1933,10 +1933,10 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 
 			public void WriteTo(IAmqpWriter writer)
 			{
-                writer.WriteShortUnsignedInteger((ushort)ProtocolClassId);
-                writer.WriteShortUnsignedInteger((ushort)ProtocolMethodId);
+				writer.WriteShortUnsignedInteger((ushort)ProtocolClassId);
+				writer.WriteShortUnsignedInteger((ushort)ProtocolMethodId);
 
-                writer.WriteLongString(_response.Value);
+				writer.WriteLongString(_response.Value);
 			}
 		}
 
