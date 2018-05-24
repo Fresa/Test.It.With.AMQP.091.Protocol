@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net47</TargetFramework>
+        <Authors>Fredrik Arvidsson</Authors>
+        <Company />
+        <Copyright>Copyright ©  2017</Copyright>
+        <AssemblyName>Test.It.With.Amqp.091.Protocol.Generator</AssemblyName>
+        <RootNamespace>Test.It.With.Amqp091.Protocol.Generator</RootNamespace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <LangVersion>7.1</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <LangVersion>7.1</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="ProtocolGenerator.tt">
+            <Generator>TextTemplatingFileGenerator</Generator>
+            <LastGenOutput>ProtocolGenerator.cs</LastGenOutput>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="amqp0-9-1\" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Validation" version="2.4.15" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="Test.It.With.Amqp.Protocol">
+        <HintPath>..\..\Test.It.With.AMQP.Protocol\Test.It.With.Amqp.Protocol\bin\Debug\net47\Test.It.With.Amqp.Protocol.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+</Project>

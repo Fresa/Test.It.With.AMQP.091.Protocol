@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net47</TargetFramework>
+        <Authors>Fredrik Arvidsson</Authors>
+        <Company />
+        <Copyright>Copyright ©  2017</Copyright>
+        <RootNamespace>Test.It.With.Amqp091.Protocol</RootNamespace>
+        <AssemblyName>Test.It.With.Amqp.091.Protocol</AssemblyName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <LangVersion>7.1</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Test.It.With.Amqp.091.Generator\Test.It.With.Amqp.091.Protocol.Generator.csproj" />
+    </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Test.It.With.Amqp.Protocol">
+      <HintPath>..\..\Test.It.With.AMQP.Protocol\Test.It.With.Amqp.Protocol\bin\Debug\net47\Test.It.With.Amqp.Protocol.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
