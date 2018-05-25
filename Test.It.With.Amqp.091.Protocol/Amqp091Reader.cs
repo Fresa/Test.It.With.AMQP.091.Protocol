@@ -8,7 +8,7 @@ using Test.It.With.Amqp091.Protocol.Generator;
 
 namespace Test.It.With.Amqp091.Protocol
 {
-    internal class Amqp091Reader : IByteReader, IAmqpReader
+    public class Amqp091Reader : IByteReader, IAmqpReader
     {
         private readonly byte[] _buffer;
         private int _position;

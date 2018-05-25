@@ -9,7 +9,7 @@ using Test.It.With.Amqp091.Protocol.Generator;
 
 namespace Test.It.With.Amqp091.Protocol
 {
-    internal class Amqp091Writer : IByteWriter, IAmqpWriter
+    public class Amqp091Writer : IByteWriter, IAmqpWriter
     {
         private readonly Stream _buffer;
         private readonly BitWriter _bitWriter;
