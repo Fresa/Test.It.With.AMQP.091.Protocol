@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Test.It.With.Amqp.Protocol;
-using Validation;
 
 namespace Test.It.With.Amqp091.Protocol.Generator
 {
@@ -722,8 +721,8 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 
 		public ExchangeName(System.String value)
 		{
-			Requires.Range(value.Length <= 127, nameof(value));
-			Requires.That(Regex.IsMatch(value, "^[a-zA-Z0-9-_.:]*$"), nameof(value), "Value must meet the following regex criteria: ^[a-zA-Z0-9-_.:]*$");
+			Ensure.Range(value.Length <= 127, nameof(value));
+			Ensure.That(Regex.IsMatch(value, "^[a-zA-Z0-9-_.:]*$"), nameof(value), "Value must meet the following regex criteria: ^[a-zA-Z0-9-_.:]*$");
 			Value = value;
 		}
 
@@ -944,8 +943,8 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 
 		public Path(System.String value)
 		{
-			Requires.NotNullAllowStructs(value, nameof(value));
-			Requires.Range(value.Length <= 127, nameof(value));
+			Ensure.NotNull(value, nameof(value));
+			Ensure.Range(value.Length <= 127, nameof(value));
 			Value = value;
 		}
 
@@ -1037,8 +1036,8 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 
 		public QueueName(System.String value)
 		{
-			Requires.Range(value.Length <= 127, nameof(value));
-			Requires.That(Regex.IsMatch(value, "^[a-zA-Z0-9-_.:]*$"), nameof(value), "Value must meet the following regex criteria: ^[a-zA-Z0-9-_.:]*$");
+			Ensure.Range(value.Length <= 127, nameof(value));
+			Ensure.That(Regex.IsMatch(value, "^[a-zA-Z0-9-_.:]*$"), nameof(value), "Value must meet the following regex criteria: ^[a-zA-Z0-9-_.:]*$");
 			Value = value;
 		}
 
@@ -1173,7 +1172,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 
 		public ReplyCode(System.Int16 value)
 		{
-			Requires.NotNullAllowStructs(value, nameof(value));
+			Ensure.NotNull(value, nameof(value));
 			Value = value;
 		}
 
@@ -1218,7 +1217,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 
 		public ReplyText(System.String value)
 		{
-			Requires.NotNullAllowStructs(value, nameof(value));
+			Ensure.NotNull(value, nameof(value));
 			Value = value;
 		}
 
@@ -1704,7 +1703,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _mechanisms;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_mechanisms = value;
 				}
 			}
@@ -1719,7 +1718,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _locales;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_locales = value;
 				}
 			}
@@ -1784,7 +1783,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _mechanism;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_mechanism = value;
 				}
 			}
@@ -1799,7 +1798,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _response;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_response = value;
 				}
 			}
@@ -1814,7 +1813,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _locale;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_locale = value;
 				}
 			}
@@ -1921,7 +1920,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _response;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_response = value;
 				}
 			}
@@ -2054,7 +2053,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _channelMax;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 
 					_channelMax = value;
 				}
@@ -2735,7 +2734,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _exchange;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_exchange = value;
 				}
 			}
@@ -2934,7 +2933,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _exchange;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_exchange = value;
 				}
 			}
@@ -3222,7 +3221,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 				get => _queue;
 				set
 				{
-					Requires.NotNullAllowStructs(value.Value, nameof(value.Value));
+					Ensure.NotNull(value.Value, nameof(value.Value));
 					_queue = value;
 				}
 			}
