@@ -1,4 +1,3 @@
-using Test.It.With.Amqp091.Protocol;
 using Test.It.With.Amqp091.Protocol.Expectations;
 using Test.It.With.Amqp091.Protocol.Expectations.Managers;
 using Test.It.With.Amqp091.Protocol.Generator;

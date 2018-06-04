@@ -1,11 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net47</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Authors>Fredrik Arvidsson</Authors>
         <Company />
         <Copyright>Copyright ©  2017</Copyright>
         <RootNamespace>Test.It.With.Amqp091.Protocol</RootNamespace>
         <AssemblyName>Test.It.With.Amqp.091.Protocol</AssemblyName>
+        <RepositoryUrl>https://github.com/Fresa/Test.It.With.AMQP.091.Protocol</RepositoryUrl>
+        <PackageLicenseUrl>https://github.com/Fresa/Test.It.With.AMQP.091.Protocol/blob/master/LICENSE</PackageLicenseUrl>
+        <Description>Protocol definitions for AMQP 0.9.1 to be used with Test.It.With.AMQP test framework.</Description>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <LangVersion>7.1</LangVersion>
