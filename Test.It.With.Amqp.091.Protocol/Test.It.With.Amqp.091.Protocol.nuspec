@@ -4,15 +4,15 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <authors>$Authors$</authors>
+    <owners>$Authors$</owners>
     <licenseUrl>$PackageLicenseUrl$</licenseUrl>
     <projectUrl>$RepositoryUrl$</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>$Description$</description>
     <releaseNotes></releaseNotes>
     <copyright>$Copyright$</copyright>
-    <tags>Log Logging</tags>
+    <tags>$PackageTags$</tags>
     <dependencies>
         <group>
             <dependency id="Test.It.With.Amqp.Protocol" version="1.0.0" />

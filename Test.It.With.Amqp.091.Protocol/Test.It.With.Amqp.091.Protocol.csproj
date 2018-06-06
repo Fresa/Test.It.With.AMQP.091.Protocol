@@ -9,6 +9,7 @@
         <RepositoryUrl>https://github.com/Fresa/Test.It.With.AMQP.091.Protocol</RepositoryUrl>
         <PackageLicenseUrl>https://github.com/Fresa/Test.It.With.AMQP.091.Protocol/blob/master/LICENSE</PackageLicenseUrl>
         <Description>Protocol definitions for AMQP 0.9.1 to be used with Test.It.With.AMQP test framework.</Description>
+        <PackageTags>Test AMQP 091 protocol</PackageTags>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <LangVersion>7.1</LangVersion>
