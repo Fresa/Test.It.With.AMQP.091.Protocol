@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <IsPackable>false</IsPackable>
         <Authors>Fredrik Arvidsson</Authors>
         <Company />
         <Copyright>Copyright ©  2017</Copyright>
@@ -17,9 +18,7 @@
         <Folder Include="amqp0-9-1\" />
     </ItemGroup>
     <ItemGroup>
-      <Reference Include="Test.It.With.Amqp.Protocol">
-        <HintPath>..\..\Test.It.With.AMQP.Protocol\Test.It.With.Amqp.Protocol\bin\Debug\net47\Test.It.With.Amqp.Protocol.dll</HintPath>
-      </Reference>
+      <PackageReference Include="Test.It.With.Amqp.Protocol" Version="1.0.3" />
     </ItemGroup>
     <ItemGroup>
       <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />

@@ -1,17 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
     <RootNamespace>Test.It.With.Amqp091.Protocol.Generator.Transformation</RootNamespace>
     <AssemblyName>Test.It.With.Amqp.091.Protocol.Generator.Transformation</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Test.It.With.Amqp.Protocol" Version="1.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.TextTemplating.15.0">
       <HintPath>..\..\Test.It.With.AMQP.Protocol\Test.It.With.Amqp.Protocol\bin\Debug\net47\Microsoft.VisualStudio.TextTemplating.15.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Test.It.With.Amqp.Protocol">
-      <HintPath>..\..\Test.It.With.AMQP.Protocol\Test.It.With.Amqp.Protocol\bin\Debug\net47\Test.It.With.Amqp.Protocol.dll</HintPath>
     </Reference>
   </ItemGroup>
 

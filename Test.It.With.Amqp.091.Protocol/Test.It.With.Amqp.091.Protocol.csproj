@@ -2,24 +2,27 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <Authors>Fredrik Arvidsson</Authors>
-        <Company />
-        <Copyright>Copyright ©  2017</Copyright>
+        <Company>FKAN Consulting AB</Company>
+        <Copyright>Copyright © 2017 Fredrik Arvidsson</Copyright>
         <RootNamespace>Test.It.With.Amqp091.Protocol</RootNamespace>
         <AssemblyName>Test.It.With.Amqp.091.Protocol</AssemblyName>
         <RepositoryUrl>https://github.com/Fresa/Test.It.With.AMQP.091.Protocol</RepositoryUrl>
         <PackageLicenseUrl>https://github.com/Fresa/Test.It.With.AMQP.091.Protocol/blob/master/LICENSE</PackageLicenseUrl>
         <Description>Protocol definitions for AMQP 0.9.1 to be used with Test.It.With.AMQP test framework.</Description>
         <PackageTags>Test AMQP 091 protocol</PackageTags>
+        <PackageReleaseNotes />
+        <PackageVersion></PackageVersion>
+        <Version>1.0.0</Version>
+        <IncludeSource>True</IncludeSource>
+        <IncludeSymbols>True</IncludeSymbols>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <LangVersion>7.1</LangVersion>
     </PropertyGroup>
     <ItemGroup>
+      <PackageReference Include="Test.It.With.Amqp.Protocol" Version="1.0.3" />
+    </ItemGroup>
+    <ItemGroup>
       <ProjectReference Include="..\Test.It.With.Amqp.091.Protocol.Generator\Test.It.With.Amqp.091.Protocol.Generator.csproj" />
     </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Test.It.With.Amqp.Protocol">
-      <HintPath>..\..\Test.It.With.AMQP.Protocol\Test.It.With.Amqp.Protocol\bin\Debug\net47\Test.It.With.Amqp.Protocol.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>
