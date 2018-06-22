@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using Test.It.With.Amqp.Protocol;
 
-using Test.It.With.Amqp091.Protocol.Generator;
-
 namespace Test.It.With.Amqp091.Protocol
 {
     public class Amqp091Reader : IByteReader, IAmqpReader

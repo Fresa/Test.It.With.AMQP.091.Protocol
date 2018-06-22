@@ -4,7 +4,6 @@ using Test.It.With.Amqp.Protocol;
 using Test.It.With.Amqp.Protocol.Expectations;
 using Test.It.With.Amqp091.Protocol.Expectations;
 using Test.It.With.Amqp091.Protocol.Expectations.MethodExpectationBuilders;
-using Test.It.With.Amqp091.Protocol.Generator;
 
 namespace Test.It.With.Amqp091.Protocol
 {

@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.It.With.Amqp.091.Proto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.It.With.Amqp.091.Protocol", "Test.It.With.Amqp.091.Protocol\Test.It.With.Amqp.091.Protocol.csproj", "{F780861A-DB04-4937-8083-3CD6FD5C1D87}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.It.With.Amqp.091.Protocol.Generator", "Test.It.With.Amqp.091.Protocol.Generator\Test.It.With.Amqp.091.Protocol.Generator.csproj", "{CE503339-C849-4B0D-953E-110D613B82E7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.It.With.Amqp.091.Protocol.Generator.Transformation", "Test.It.With.Amqp.091.Protocol.Generator.Transformation\Test.It.With.Amqp.091.Protocol.Generator.Transformation.csproj", "{B80D2A33-FB9B-440B-BB80-496CDB8E8CD5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.It.With.Amqp.091.Protocol.Generator.Transformation.Tests", "Tests\Test.It.With.Amqp.091.Protocol.Generator.Transformation.Tests\Test.It.With.Amqp.091.Protocol.Generator.Transformation.Tests.csproj", "{C9CFD2ED-B03B-45BF-812D-7D5949AE2F18}"
@@ -39,14 +37,6 @@ Global
 		{F780861A-DB04-4937-8083-3CD6FD5C1D87}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F780861A-DB04-4937-8083-3CD6FD5C1D87}.Release|x86.ActiveCfg = Release|Any CPU
 		{F780861A-DB04-4937-8083-3CD6FD5C1D87}.Release|x86.Build.0 = Release|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Debug|x86.Build.0 = Debug|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Release|x86.ActiveCfg = Release|Any CPU
-		{CE503339-C849-4B0D-953E-110D613B82E7}.Release|x86.Build.0 = Release|Any CPU
 		{B80D2A33-FB9B-440B-BB80-496CDB8E8CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B80D2A33-FB9B-440B-BB80-496CDB8E8CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B80D2A33-FB9B-440B-BB80-496CDB8E8CD5}.Debug|x86.ActiveCfg = Debug|Any CPU

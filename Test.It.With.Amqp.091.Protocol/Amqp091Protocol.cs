@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using Test.It.With.Amqp.Protocol;
+using Test.It.With.Amqp091.Protocol.Assertions;
 
-namespace Test.It.With.Amqp091.Protocol.Generator
+namespace Test.It.With.Amqp091.Protocol
 {
-	internal class Amq091Protocol : IProtocol
+	internal class Amqp091Protocol : IProtocol
 	{
 		public IVersion Version { get; } = new ProtocolVersion(); 
 
@@ -5770,7 +5771,7 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 		private const string ValidProtocol = "AMQP";
 
 		public IVersion Version { get; set; } 
-		private readonly IVersion _validVersion = new Amq091Protocol().Version;
+		private readonly IVersion _validVersion = new Amqp091Protocol().Version;
 
 		public int Constant { get; set; }
 		private const int ValidConstant = 0;
@@ -5801,26 +5802,26 @@ namespace Test.It.With.Amqp091.Protocol.Generator
 		{
 			return protocolHeader;
 		}
-	}
 
-	public class ProtocolHeaderVersion : IVersion
-	{
-		public int Major { get; set; }
-		public int Minor { get; set; }
-		public int Revision { get; set; }
-
-		public void WriteTo(IAmqpWriter writer)
+		private class ProtocolHeaderVersion : IVersion
 		{
-			writer.WriteByte((byte)Major);
-			writer.WriteByte((byte)Minor);
-			writer.WriteByte((byte)Revision);
-		}
+			public int Major { get; private set; }
+			public int Minor { get; private set; }
+			public int Revision { get; private set; }
 
-		public void ReadFrom(IAmqpReader reader)
-		{
-			Major = reader.ReadByte();
-			Minor = reader.ReadByte();
-			Revision = reader.ReadByte();
+			public void WriteTo(IAmqpWriter writer)
+			{
+				writer.WriteByte((byte)Major);
+				writer.WriteByte((byte)Minor);
+				writer.WriteByte((byte)Revision);
+			}
+
+			public void ReadFrom(IAmqpReader reader)
+			{
+				Major = reader.ReadByte();
+				Minor = reader.ReadByte();
+				Revision = reader.ReadByte();
+			}
 		}
 	}
 

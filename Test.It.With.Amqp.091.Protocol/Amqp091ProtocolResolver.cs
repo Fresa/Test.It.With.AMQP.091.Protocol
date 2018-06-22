@@ -1,6 +1,5 @@
 using Test.It.With.Amqp.Protocol;
 using Test.It.With.Amqp.Protocol.Expectations;
-using Test.It.With.Amqp091.Protocol.Generator;
 
 namespace Test.It.With.Amqp091.Protocol
 {
@@ -8,7 +7,7 @@ namespace Test.It.With.Amqp091.Protocol
     {
         private Amqp091ProtocolResolver()
         {
-            Protocol = new Amq091Protocol();
+            Protocol = new Amqp091Protocol();
             ExpectationStateMachineFactory = new Amqp091ExpectationStateMachineFactory();
             AmqpReaderFactory = new Amqp091ReaderFactory();
             AmqpWriterFactory = new Amqp091WriterFactory();
