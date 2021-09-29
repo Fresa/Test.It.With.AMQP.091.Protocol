@@ -1,4 +1,4 @@
-﻿using Should.Fluent;
+﻿using FluentAssertions;
 using Test.It.With.Amqp091.Protocol.Generator.Transformation.Extensions;
 using Test.It.With.XUnit;
 using Xunit;
@@ -23,7 +23,7 @@ namespace Test.It.With.Amqp091.Protocol.Common.Tests
         [Fact]
         public void It_should_result_in_a_pascal_case_string()
         {
-            _result.Should().Equal("ThisIsAString");
+            _result.Should().Be("ThisIsAString");
         }
     }
 
@@ -45,7 +45,7 @@ namespace Test.It.With.Amqp091.Protocol.Common.Tests
         [Fact]
         public void It_should_result_in_a_pascal_case_string()
         {
-            _result.Should().Equal("thisIsAString");
+            _result.Should().Be("thisIsAString");
         }
     }
 }

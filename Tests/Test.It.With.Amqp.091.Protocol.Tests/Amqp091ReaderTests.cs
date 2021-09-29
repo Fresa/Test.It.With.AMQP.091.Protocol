@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Should.Fluent;
+using FluentAssertions;
 using Test.It.With.Amqp091.Protocol;
 using Test.It.With.XUnit;
 using Xunit;
@@ -25,7 +25,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _ushort.Should().Equal((ushort)2);
+            _ushort.Should().Be((ushort)2);
         }
     }
 
@@ -47,7 +47,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _ushort.Should().Equal((uint)2);
+            _ushort.Should().Be((uint)2);
         }
     }
 
@@ -69,7 +69,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _ushort.Should().Equal((ulong)2);
+            _ushort.Should().Be((ulong)2);
         }
     }
 
@@ -91,7 +91,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _parsedData.Should().Equal("ABCDE");
+            _parsedData.Should().Be("ABCDE");
         }
     }
 
@@ -113,7 +113,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _parsedData.Should().Equal((byte)16);
+            _parsedData.Should().Be((byte)16);
         }
     }
 
@@ -135,7 +135,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(true);
+            _readData.Should().Be(true);
         }
     }
 
@@ -157,7 +157,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(new byte[] { 1, 0 });
+            _readData.Should().BeEquivalentTo(new byte[] { 1, 0 });
         }
     }
 
@@ -179,7 +179,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(new byte[] { 0, 6, 1, 2, 3 });
+            _readData.Should().BeEquivalentTo(new byte[] { 0, 6, 1, 2, 3 });
         }
     }
 
@@ -201,7 +201,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal('ऎ');
+            _readData.Should().Be('ऎ');
         }
     }
 
@@ -223,7 +223,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((sbyte)65);
+            _readData.Should().Be((sbyte)65);
         }
     }
 
@@ -245,7 +245,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((long)65);
+            _readData.Should().Be((long)65);
         }
     }
 
@@ -267,7 +267,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((decimal)0.04);
+            _readData.Should().Be((decimal)0.04);
         }
     }
 
@@ -289,7 +289,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((decimal)-0.04);
+            _readData.Should().Be((decimal)-0.04);
         }
     }
 
@@ -311,7 +311,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(257);
+            _readData.Should().Be(257);
         }
     }
 
@@ -333,7 +333,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(256);
+            _readData.Should().Be(256);
         }
     }
 
@@ -355,7 +355,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((float)1.5000000E+001);
+            _readData.Should().Be((float)1.5000000E+001);
         }
     }
 
@@ -377,7 +377,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(2.5500000000000000E+002);
+            _readData.Should().Be(2.5500000000000000E+002);
         }
     }
 
@@ -399,7 +399,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(new DateTime(1970, 7, 14, 4, 20, 21));
+            _readData.Should().Be(new DateTime(1970, 7, 14, 4, 20, 21));
         }
     }
 
@@ -422,8 +422,8 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         public void It_should_parse_correctly()
         {
             _readData
-                .Should().Count.One()
-                .Should().Contain.Item(new KeyValuePair<string, object>("ABCDE", true));
+                .Should().HaveCount(1).And
+                .ContainInOrder(new KeyValuePair<string, object>("ABCDE", true));
         }
     }
 
@@ -445,7 +445,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(true);
+            _readData.Should().Be(true);
         }
     }
 
@@ -467,7 +467,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((sbyte)5);
+            _readData.Should().Be((sbyte)5);
         }
     }
 
@@ -489,7 +489,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((byte)5);
+            _readData.Should().Be((byte)5);
         }
     }
 
@@ -511,7 +511,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((short)262);
+            _readData.Should().Be((short)262);
         }
     }
 
@@ -533,7 +533,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((ushort)262);
+            _readData.Should().Be((ushort)262);
         }
     }
 
@@ -555,7 +555,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(262);
+            _readData.Should().Be(262);
         }
     }
 
@@ -577,7 +577,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((uint)262);
+            _readData.Should().Be((uint)262);
         }
     }
 
@@ -599,7 +599,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((long)262);
+            _readData.Should().Be((long)262);
         }
     }
 
@@ -621,7 +621,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((ulong)262);
+            _readData.Should().Be((ulong)262);
         }
     }
 
@@ -643,7 +643,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((float)1.5000000E+001);
+            _readData.Should().Be((float)1.5000000E+001);
         }
     }
 
@@ -665,7 +665,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(2.5500000000000000E+002);
+            _readData.Should().Be(2.5500000000000000E+002);
         }
     }
 
@@ -687,7 +687,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((decimal)0.04);
+            _readData.Should().Be((decimal)0.04);
         }
     }
 
@@ -709,7 +709,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal((decimal)-0.04);
+            _readData.Should().Be((decimal)-0.04);
         }
     }
 
@@ -731,7 +731,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal("ABCDE");
+            _readData.Should().Be("ABCDE");
         }
     }
 
@@ -753,7 +753,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(new byte[] { 65, 66, 67, 68, 69 });
+            _readData.Should().BeEquivalentTo(new byte[] { 65, 66, 67, 68, 69 });
         }
     }
 
@@ -775,7 +775,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         [Fact]
         public void It_should_parse_correctly()
         {
-            _readData.Should().Equal(new DateTime(1970, 7, 14, 4, 20, 21));
+            _readData.Should().Be(new DateTime(1970, 7, 14, 4, 20, 21));
         }
     }
 
@@ -798,8 +798,8 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         public void It_should_parse_correctly()
         {
             _readData
-                .Should().Count.One()
-                .Should().Contain.Item(new KeyValuePair<string, object>("ABCDE", true));
+                .Should().HaveCount(1).And
+                .ContainInOrder(new KeyValuePair<string, object>("ABCDE", true));
         }
     }
 
@@ -822,8 +822,8 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         public void It_should_parse_correctly()
         {
             _readData
-                .Should().Count.One()
-                .Should().Contain.Item(true);
+                .Should().HaveCount(1).And
+                .ContainInOrder(true);
         }
     }
 
@@ -846,7 +846,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         public void It_should_parse_correctly()
         {
             _readData
-                .Should().Equal(null);
+                .Should().Be(null);
         }
     }
     
@@ -869,7 +869,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         public void It_should_parse_correctly()
         {
             _readData
-                .Should().Equal(new[] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, true });
+                .Should().BeEquivalentTo(new[] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, true });
         }
     }
 
@@ -892,7 +892,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         public void It_should_parse_correctly()
         {
             _readData
-                .Should().Equal(new[] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false });
+                .Should().BeEquivalentTo(new[] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false });
         }
     }
 
@@ -917,7 +917,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
         public void It_should_have_cloned_the_data_not_read()
         {
             _readData
-                .Should().Equal(new byte[] { 3, 128, 0 });
+                .Should().BeEquivalentTo(new byte[] { 3, 128, 0 });
         }
     }
 }
