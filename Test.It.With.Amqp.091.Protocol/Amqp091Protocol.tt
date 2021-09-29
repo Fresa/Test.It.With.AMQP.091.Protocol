@@ -121,7 +121,7 @@ namespace Test.It.With.Amqp<#= protocol.Major #><#=protocol.Minor#><#= protocol.
 		#>public IContentHeader GetContentHeader(IAmqpReader reader)<# Block(() =>
 	    {
 			#>var classId = reader.ReadShortUnsignedInteger();<# _(2);
-			#>var weight = reader.ReadShortInteger();<# _();
+			#>var weight = reader.ReadShortUnsignedInteger();<# _();
 			#>if (weight != 0)<# Block(() =>
 	        {
 	            #>throw new <#= protocol.Constants.GetExceptionName(501) #>Exception("Expected weight = 0");<#
@@ -345,6 +345,7 @@ namespace Test.It.With.Amqp<#= protocol.Major #><#=protocol.Minor#><#= protocol.
 										GenerateAssertion(fieldAssert, "value.Value");
 									}); _();
 								}
+								#>Has<#= field.Name.ToPascalCase('-') #> = value != default;<# _();
 								#>_<#= field.Name.ToCamelCase('-') #> = value;<#
 							});
 						}); _();
