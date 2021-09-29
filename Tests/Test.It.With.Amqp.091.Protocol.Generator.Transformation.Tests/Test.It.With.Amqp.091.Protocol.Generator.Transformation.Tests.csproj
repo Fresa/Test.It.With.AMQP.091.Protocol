@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
         <Authors>Fredrik Arvidsson</Authors>
         <Company />
         <Copyright>Copyright ©  2017</Copyright>
