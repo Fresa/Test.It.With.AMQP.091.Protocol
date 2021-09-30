@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net47</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <IsPackable>false</IsPackable>
     <RootNamespace>Test.It.With.Amqp091.Protocol.Generator.Transformation</RootNamespace>
     <AssemblyName>Test.It.With.Amqp.091.Protocol.Generator.Transformation</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.15.0" Version="15.7.27703" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.15.0" Version="16.10.31320.204" />
     <PackageReference Include="Test.It.With.Amqp.Protocol" Version="1.0.3" />
   </ItemGroup>
 

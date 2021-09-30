@@ -1,5 +1,5 @@
 ﻿using FakeItEasy;
-using Should.Fluent;
+using FluentAssertions;
 using Test.It.With.XUnit;
 using Xunit;
 
@@ -34,7 +34,7 @@ namespace Test.It.With.Amqp091.Protocol.Tests
             [Fact]
             public void It_should_have_written_correct_byte()
             {
-                _byteWritten.Should().Equal((byte) 10);
+                _byteWritten.Should().Be(10);
             }
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
-using Should.Fluent;
+using FluentAssertions;
 using Test.It.With.Amqp091.Protocol;
 using Test.It.With.XUnit;
 using Xunit;

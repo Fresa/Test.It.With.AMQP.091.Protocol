@@ -47,7 +47,7 @@ namespace Test.It.With.Amqp091.Protocol
 		{
 			var classId = reader.ReadShortUnsignedInteger();
 
-			var weight = reader.ReadShortInteger();
+			var weight = reader.ReadShortUnsignedInteger();
 			if (weight != 0)
 			{
 				throw new FrameErrorException("Expected weight = 0");
@@ -3874,6 +3874,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _contentType;
 				set
 				{
+					HasContentType = value != default;
 					_contentType = value;
 				}
 			}
@@ -3885,6 +3886,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _contentEncoding;
 				set
 				{
+					HasContentEncoding = value != default;
 					_contentEncoding = value;
 				}
 			}
@@ -3896,6 +3898,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _headers;
 				set
 				{
+					HasHeaders = value != default;
 					_headers = value;
 				}
 			}
@@ -3907,6 +3910,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _deliveryMode;
 				set
 				{
+					HasDeliveryMode = value != default;
 					_deliveryMode = value;
 				}
 			}
@@ -3918,6 +3922,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _priority;
 				set
 				{
+					HasPriority = value != default;
 					_priority = value;
 				}
 			}
@@ -3929,6 +3934,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _correlationId;
 				set
 				{
+					HasCorrelationId = value != default;
 					_correlationId = value;
 				}
 			}
@@ -3940,6 +3946,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _replyTo;
 				set
 				{
+					HasReplyTo = value != default;
 					_replyTo = value;
 				}
 			}
@@ -3951,6 +3958,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _expiration;
 				set
 				{
+					HasExpiration = value != default;
 					_expiration = value;
 				}
 			}
@@ -3962,6 +3970,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _messageId;
 				set
 				{
+					HasMessageId = value != default;
 					_messageId = value;
 				}
 			}
@@ -3973,6 +3982,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _timestamp;
 				set
 				{
+					HasTimestamp = value != default;
 					_timestamp = value;
 				}
 			}
@@ -3984,6 +3994,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _type;
 				set
 				{
+					HasType = value != default;
 					_type = value;
 				}
 			}
@@ -3995,6 +4006,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _userId;
 				set
 				{
+					HasUserId = value != default;
 					_userId = value;
 				}
 			}
@@ -4006,6 +4018,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _appId;
 				set
 				{
+					HasAppId = value != default;
 					_appId = value;
 				}
 			}
@@ -4017,6 +4030,7 @@ namespace Test.It.With.Amqp091.Protocol
 				get => _reserved;
 				set
 				{
+					HasReserved = value != default;
 					_reserved = value;
 				}
 			}

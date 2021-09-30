@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using FakeItEasy;
-using Should.Fluent;
+using FluentAssertions;
 using Test.It.With.XUnit;
 using Xunit;
 
@@ -32,29 +32,9 @@ namespace Test.It.With.Amqp091.Protocol.Tests
             }
 
             [Fact]
-            public void It_should_have_read_correct_bits_for_the_first_byte()
+            public void It_should_have_read_correct_bits()
             {
-                _bitsRead[0].Should().Be.True();
-                _bitsRead[1].Should().Be.False();
-                _bitsRead[2].Should().Be.True();
-                _bitsRead[3].Should().Be.False();
-                _bitsRead[4].Should().Be.False();
-                _bitsRead[5].Should().Be.False();
-                _bitsRead[6].Should().Be.False();
-                _bitsRead[7].Should().Be.False();
-            }
-
-            [Fact]
-            public void It_should_have_read_correct_bits_for_the_second_byte()
-            {
-                _bitsRead[8].Should().Be.True();
-                _bitsRead[9].Should().Be.True();
-                _bitsRead[10].Should().Be.True();
-                _bitsRead[11].Should().Be.False();
-                _bitsRead[12].Should().Be.False();
-                _bitsRead[13].Should().Be.False();
-                _bitsRead[14].Should().Be.False();
-                _bitsRead[15].Should().Be.False();
+                _bitsRead.Should().ContainInOrder(true, false, true, false, false, false, false, false, true, true, true, false, false, false, false, false);
             }
         }
     }
