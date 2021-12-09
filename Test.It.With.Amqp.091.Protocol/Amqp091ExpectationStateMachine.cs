@@ -36,7 +36,7 @@ namespace Test.It.With.Amqp091.Protocol
         {
             _expectationManager.Get<ProtocolHeaderExpectation>(channel);
 
-            _expectationManager.Set(channel, new MethodExpectation(_expectedMethodManager.GetExpectingMethodsFor<IProtocolHeader>()));
+            _expectationManager.Set(channel, new MethodExpectation(protocolHeader.GetType(), _expectedMethodManager.GetExpectingMethodsFor<IProtocolHeader>()));
             return true;
         }
 
@@ -58,7 +58,10 @@ namespace Test.It.With.Amqp091.Protocol
             {
                 if (methodExpectation.MethodResponses.Contains(method.GetType()) == false)
                 {
-                    throw new UnexpectedFrameException($"Did not expect { method.GetType().FullName}. Expected: {string.Join(", ", methodExpectation.MethodResponses.Select(type => type.FullName))}.");
+                    throw new UnexpectedFrameException(
+                        $"Did not expect {method.GetType().FullName}." +
+                        $"Last received method on channel {channel} was {methodExpectation.Name}. " +
+                        $"Expected to receive any of these methods: {string.Join(", ", methodExpectation.MethodResponses.Select(type => type.FullName))}.");
                 }
             }
 
@@ -70,18 +73,18 @@ namespace Test.It.With.Amqp091.Protocol
 
             if (method is IContentMethod contentMethod)
             {
-                _expectationManager.Set(channel, new ContentHeaderExpectation());
+                _expectationManager.Set(channel, new ContentHeaderExpectation(contentMethod.GetType()));
                 _contentMethodStates[channel] = contentMethod;
                 return false;
             }
 
-            methodExpectation = new MethodExpectation(_expectedMethodManager.GetExpectingMethodsFor(method.GetType()));
+            methodExpectation = new MethodExpectation(method.GetType(), _expectedMethodManager.GetExpectingMethodsFor(method.GetType()));
 
             _expectationManager.Set(channel, methodExpectation);
 
             return true;
         }
-        
+
 
         public bool ShouldPass(int channel, IContentHeader contentHeader, out IContentMethod method)
         {
@@ -95,12 +98,12 @@ namespace Test.It.With.Amqp091.Protocol
                 method = default;
                 return false;
             }
-            
+
             _contentMethodStates[channel].SetContentHeader(contentHeader);
 
             if (contentHeader.BodySize > 0)
             {
-                _expectationManager.Set(channel, new ContentBodyExpectation(contentHeader.BodySize));
+                _expectationManager.Set(channel, new ContentBodyExpectation(contentHeader.GetType(), contentHeader.BodySize));
                 method = default;
                 return false;
             }
@@ -108,7 +111,7 @@ namespace Test.It.With.Amqp091.Protocol
             method = _contentMethodStates[channel];
             _contentMethodStates.Remove(channel);
 
-            _expectationManager.Set(channel, new MethodExpectation(_expectedMethodManager.GetExpectingMethodsFor(method.GetType())));
+            _expectationManager.Set(channel, new MethodExpectation(method.GetType(), _expectedMethodManager.GetExpectingMethodsFor(method.GetType())));
             return true;
         }
 
@@ -124,9 +127,9 @@ namespace Test.It.With.Amqp091.Protocol
                 method = default;
                 return false;
             }
-            
+
             var contentBodyExpectation = _expectationManager.Get<ContentBodyExpectation>(channel);
-            
+
             var size = contentBody.Payload.Length;
             if (size > contentBodyExpectation.Size)
             {
@@ -143,12 +146,12 @@ namespace Test.It.With.Amqp091.Protocol
             if (size == contentBodyExpectation.Size)
             {
                 method = _contentMethodStates[channel];
-                _expectationManager.Set(channel, new MethodExpectation(_expectedMethodManager.GetExpectingMethodsFor(method.GetType())));
+                _expectationManager.Set(channel, new MethodExpectation(method.GetType(), _expectedMethodManager.GetExpectingMethodsFor(method.GetType())));
                 _contentMethodStates.Remove(channel);
                 return true;
             }
 
-            _expectationManager.Set(channel, new ContentBodyExpectation(contentBodyExpectation.Size - size));
+            _expectationManager.Set(channel, new ContentBodyExpectation(contentBody.GetType(), contentBodyExpectation.Size - size));
             method = default;
             return false;
         }
