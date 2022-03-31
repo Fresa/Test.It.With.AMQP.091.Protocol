@@ -23,5 +23,10 @@ namespace Test.It.With.Amqp091.Protocol.Generator.Transformation.Extensions
 
             return $"{prettyName}<{string.Join(", ", genericArguments)}>";
         }
+
+        public static bool IsNullable(this Type type)
+        {
+            return !type.IsValueType || Nullable.GetUnderlyingType(type) != null;
+        }
     }
 }
