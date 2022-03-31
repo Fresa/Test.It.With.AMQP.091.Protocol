@@ -4,7 +4,7 @@
 <#@ assembly name="System.Xml" #>
 <#@ assembly name="System.Text.RegularExpressions" #>
 <#@ assembly name="$(NuGetPackageRoot)\Test.It.With.Amqp.Protocol\1.0.3\lib\netstandard2.0\Test.It.With.Amqp.Protocol.dll" #>
-<#@ assembly name="$(SolutionDir)\Test.It.With.Amqp.091.Protocol.Generator.Transformation\bin\Debug\netstandard2.0\Test.It.With.Amqp.091.Protocol.Generator.Transformation.dll" #>
+<#@ assembly name="$(SolutionDir)\Test.It.With.Amqp.091.Protocol.Generator.Transformation\bin\Debug\net48\Test.It.With.Amqp.091.Protocol.Generator.Transformation.dll" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
@@ -259,7 +259,9 @@ namespace Test.It.With.Amqp<#= protocol.Major #><#=protocol.Minor#><#= protocol.
     PrintOnNewRowForEach(protocol.Domains.Values, domain =>
     {
         var className = domain.Name.ToPascalCase('-');
-        var type = typeConverter.Convert(domain.Type).GetPrettyFullName();
+		var nativeType = typeConverter.Convert(domain.Type);
+        var type = nativeType.GetPrettyFullName();
+		var isNullable = nativeType.IsNullable();
 
         GenerateDocumentation(domain.Documentation);
         #>public struct <#= className #> <# Block(() =>
@@ -279,12 +281,26 @@ namespace Test.It.With.Amqp<#= protocol.Major #><#=protocol.Minor#><#= protocol.
 
 			#>public override int GetHashCode() <# Block(() => 
 			{
-				#>return Value.GetHashCode();<#
+				if (isNullable)
+				{
+					#>return Value?.GetHashCode() ?? 0;<#
+				}
+				else
+				{
+					#>return Value.GetHashCode();<#
+				}
 			}); _(2);
 
 			#>public override string ToString() <# Block(() => 
 			{
-				#>return Value.ToString();<#
+				if (isNullable)
+				{
+					#>return Value?.ToString() ?? String.Empty;<#
+				}
+				else
+				{
+					#>return Value.ToString();<#
+				}			
 			}); _(2);
 
 			#>public static bool operator == (<#= className #> x, <#= className #> y)<# Block(() => 

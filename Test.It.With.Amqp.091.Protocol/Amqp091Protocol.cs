@@ -645,12 +645,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (ConsumerTag x, ConsumerTag y)
@@ -734,12 +734,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (ExchangeName x, ExchangeName y)
@@ -956,12 +956,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (Path x, Path y)
@@ -1000,12 +1000,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (PeerProperties x, PeerProperties y)
@@ -1049,12 +1049,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (QueueName x, QueueName y)
@@ -1229,12 +1229,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (ReplyText x, ReplyText y)
@@ -1469,12 +1469,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (Shortstr x, Shortstr y)
@@ -1509,12 +1509,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (Longstr x, Longstr y)
@@ -1589,12 +1589,12 @@ namespace Test.It.With.Amqp091.Protocol
 
 		public override int GetHashCode() 
 		{
-			return Value.GetHashCode();
+			return Value?.GetHashCode() ?? 0;
 		}
 
 		public override string ToString() 
 		{
-			return Value.ToString();
+			return Value?.ToString() ?? String.Empty;
 		}
 
 		public static bool operator == (Table x, Table y)
